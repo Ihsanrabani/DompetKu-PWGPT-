@@ -1,4 +1,5 @@
 import "../index.css"
+import { Link } from "react-router-dom"
 
 
 function Navbar() {
@@ -11,9 +12,9 @@ function Navbar() {
                 </div>
 
                 <div className="flex gap-4 text-gray-500/95 xl:text-xl">
-                    <a href="#" className="hover:text-orange-400 ease-in duration-200 font-semibold">Home</a>
+                    <Link to={"/"} className="hover:text-orange-400 ease-in duration-200 font-semibold">Home</Link>
                     <span>|</span>
-                    <a href="#" className="hover:text-orange-400 ease-in duration-200 font-semibold">Histori transakasi</a>
+                    <Link to={"/histori"} className="hover:text-orange-400 ease-in duration-200 font-semibold">Histori transaksi</Link>
                 </div>
             </div>
         </div>
