@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TransCard from "../../components/TransactionCard"
 
 // !!! TODO
-// 1. Fitur filter di historyPage
-// 2. Bikin analitik(Low)
+// 1. Bikin analitik(Low)
 
 // Components
 import Navbar from "../../components/Navbar"
@@ -127,47 +126,11 @@ const Home = () => {
                     <TransCard key={index} data={tran} onDelete={() => handleDeleteTran(index, trans, tran)} />
 
                   ))                  
-              ) : (
-                <div className="  h-56 flex flex-col justify-center">
-                  <h1 className="text-xl text-center text-gray-400">Kamu belum punya transaksi</h1>
-                </div>
-              )}
-
-
-              
-              {/* <div className="bg-green-400/65 border border-green-500 rounded-md text-center p-2">
-                <div className="">
-                  <div className="text-left">
-                    <p className="text-black/40">Pemasukkan</p>
+                ) : (
+                  <div className="h-56 grid items-center xl:col-span-2" >
+                    <h1 className="text-xl xl:text-2xl text-center text-gray-400 ">Kamu belum punya transaksi</h1>
                   </div>
-
-                  <div className="h-full my-4 flex flex-col gap-1">
-                    <p className="font-semibold">Penjualan Pensil</p>
-                    <p className="text-2xl font-bold">+ Rp 100.000</p>
-                  </div>
-
-                  <div className="text-right">
-                    <button className="bg-red-400 text-white p-1 rounded-md">Hapus Transaksi</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-red-400/65 border border-red-500 rounded-md text-center p-2">
-                <div className="">
-                  <div className="justify-self-start">
-                    <p className="text-black/40">Pengeluaran</p>
-                  </div>
-
-                  <div className="h-full my-4 flex flex-col gap-1">
-                    <p className="font-semibold">Beli alat</p>
-                    <p className="text-2xl font-bold">- Rp 50.000</p>
-                  </div>
-
-                  <div className="justify-self-end">
-                    <button className="bg-red-400 text-white p-1 rounded-md">Hapus Transaksi</button>
-                  </div>
-                </div>
-              </div> */}
+                )}
 
             </div>
 
