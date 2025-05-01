@@ -2,7 +2,7 @@ import "../index.css"
 import { Link } from "react-router-dom"
 
 
-function Navbar() {
+const Navbar = () => {
 
     return (
         <div className="xl:rounded-md md:rounded-md xl:rounded-t-none bg-gray-200 mb-10">

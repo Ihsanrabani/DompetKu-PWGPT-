@@ -1,7 +1,7 @@
 import "../index.css"
 
 
-function TransCard({data, onDelete}) {
+const TransCard = ({data, onDelete}) => {
     const isIncome = data.TransactionType === "pemasukkan"
     
 

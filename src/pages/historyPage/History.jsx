@@ -1,16 +1,16 @@
 import "../../index.css"
-import { use, useEffect, useState } from "react"
+import {useEffect, useState } from "react"
 
 // COMPONENTS
 import Navbar from "../../components/Navbar"
 import TransCard from "../../components/TransactionCard"
+import Footer from "../../components/Footer"
 
 function History() {
     const [trans, setTrans] = useState([])
     const [filter, setFilter] = useState("")
 
     useEffect(() => {
-
         const storedTrans = JSON.parse(localStorage.getItem("Transactions")) || []
         setTrans(storedTrans)
     }, [])
@@ -35,12 +35,24 @@ function History() {
         handleFilter()
     }, [filter])
 
+    const handleDeleteTran = (tranIndex, trans, tran) => {
+
+        const con = confirm("Apakah transaksi " + tran.TransactionName + " ingin dihapus?")
+
+        if (con) {
+            const updateTrans = trans.filter((_, i) => i !== tranIndex)
+            setTrans(updateTrans)
+            localStorage.setItem("Transactions", JSON.stringify(updateTrans))
+            alert("Transaksi berhasil dihapus!")
+        }
+    }
+
     return (
         <>
             <div className="min-h-screen flex flex-col">
-            <Navbar/>
-                <div className="px-5 md:px-[28%]">
-                    <div className="xl:mx-[12%] md:mx-[6%]">
+                <div className="xl:mx-[12%] md:mx-[6%]">
+                    <Navbar/>
+                    <div className="px-5 md:px-[28%] pb-10">
                         <div className="text-center mb-10">
                             <h1 className="text-xl font-semibold mb-1">Histori Transaksi</h1>
                             <p className="text-gray-400">Disini kamu akan menemukan histori transaksi</p>
@@ -59,11 +71,12 @@ function History() {
 
                         <div className="flex flex-col gap-4 xl:grid xl:grid-cols-2">
                             {trans.map((tran, index) => (
-                                <TransCard key={index} data={tran} onDelete={() => handleDeleteTran(index)} />
+                                <TransCard key={index} data={tran} onDelete={() => handleDeleteTran(index, trans, tran)} />
                             ))}
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         </>
     )
